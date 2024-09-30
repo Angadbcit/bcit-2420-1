@@ -15,12 +15,12 @@ All levels (1-3) are done with refernces provided at the bottom and in-text.
 
 ## SSH key
 
-SSH stands for Secure Shell. It is a protocol used to send commands to a computer over an unsecured network in a secure manner. The connection works in a client-server model. The method of securing the connection is done through the method of cryptography.~[1](https://www.cloudflare.com/learning/access-management/what-is-ssh/)~ It is a 2 step process:
+SSH stands for Secure Shell. It is a protocol used to send commands to a computer over an unsecured network in a secure manner. The connection works in a client-server model. The method of securing the connection is done through the method of cryptography. [1](https://www.cloudflare.com/learning/access-management/what-is-ssh/)  It is a 2 step process:
 
 1. Authentication: Verify the identity of the SSH server.
 2. Encryption: A strong symetric encryption algorithm is used, which is transferred over the network using the standard hash algorithms.
 
-When we make a SSH key, we are in reality making a pair of keys. They are the public and private SSH keys. They serve a simple purpose of authenticating the client. The cryptographic pair of keys are created on the client's device, and once created, the public key is shared with the server. Now the keys will act as passwords, so when the client wants to log in, the server will compare the public key to the private key on the client's end. If they match, the connection will be established.~[2](https://www.ssh.com/academy/ssh/protocol)~
+When we make a SSH key, we are in reality making a pair of keys. They are the public and private SSH keys. They serve a simple purpose of authenticating the client. The cryptographic pair of keys are created on the client's device, and once created, the public key is shared with the server. Now the keys will act as passwords, so when the client wants to log in, the server will compare the public key to the private key on the client's end. If they match, the connection will be established. [2](https://www.ssh.com/academy/ssh/protocol)
 
 **What's the benifit?** The SSH protocol is an extremely useful tool, as it allows the client (user i.e., you) to access a server remotly. All you need to do is configure an SSH to your server, and you can now work from anywhere (as long as the server is running). *How do you make one?* Following are the steps to creating a SSH key on windows, macOS, and linux.
 
@@ -48,11 +48,11 @@ The command would successfully create a key pair in your .ssh file. The private 
 
 > *Note* this step can only be done on the Arch image since it is meant for linux. (why not for windows? My assignment didn't ask me to :])
 
-`doctl` is the command line interface of DigitalOcean. It allows the user to directly use DigitalOcean from the terminal.~[3](https://docs.digitalocean.com/reference/doctl/)~
+`doctl` is the command line interface of DigitalOcean. It allows the user to directly use DigitalOcean from the terminal. [3](https://docs.digitalocean.com/reference/doctl/)
 
 ### Installing `doctl`
 
-The following steps prepare the Linux system and downloads the CLI.~[4](https://docs.digitalocean.com/reference/doctl/how-to/install/)~
+The following steps prepare the Linux system and downloads the CLI. [4](https://docs.digitalocean.com/reference/doctl/how-to/install/)
 
 1. `sudo pacman -Syu`: This will update the system.
 2. `sudo pacman -S doctl`: This will install doctl.
@@ -61,7 +61,7 @@ The following steps prepare the Linux system and downloads the CLI.~[4](https://
 
 ### Configuring `doct`
 
-After installing `doctl`, you have to connect it to your digitalocean account to begin working. The configuration steps are as follows:~[4](https://docs.digitalocean.com/reference/doctl/how-to/install/)~
+After installing `doctl`, you have to connect it to your digitalocean account to begin working. The configuration steps are as follows: [4](https://docs.digitalocean.com/reference/doctl/how-to/install/)
 
 1. Create a digitalocean API token. These tokens work as a simple authentication key to connect your account to `doctl`.
    1. Go to the [Applications & API page](https://cloud.digitalocean.com/account/api/tokens).
@@ -71,7 +71,7 @@ After installing `doctl`, you have to connect it to your digitalocean account to
    5. Choose the *Scopes* you want the token owner to have.
    6. Click *Generate Token* to obtain it.
    > **Caution** After the token is generated, the token will be shown. This will only be shown the first time, so copy it somewhere safe.
-   > ![Generating token panel](/attachments/image1.1.png) ~[5](https://cloud.digitalocean.com/account/api/tokens/new)~
+   > ![Generating token panel](/attachments/image1.1.png)  [5](https://cloud.digitalocean.com/account/api/tokens/new)
 
    Now use the token in `doctl` to gain access to your account through the terminal. This will be done as follows:
 
@@ -87,13 +87,13 @@ With this you will be able to use your digitalocean account straight from the te
 
 ## Add a Custom Arch Linux Image to DigitalOcean
 
-Linux has many flavors (or dirtos or distributions), and Arch Linux is a popular one. It is a lightweight and flexible flavor meant to "Keep it Simple".~[6](https://archlinux.org/)~
+Linux has many flavors (or dirtos or distributions), and Arch Linux is a popular one. It is a lightweight and flexible flavor meant to "Keep it Simple". [6](https://archlinux.org/)
 
-DigitalOcean is a cloud service provider. It aims to make managing your cloud easier, in its many use cases such as Cheap web hosting, Cloud VPN, Data streaming, Game development, Linux hosting, Image hosting, etc.~[7](https://www.digitalocean.com/solutions/use-cases)~
+DigitalOcean is a cloud service provider. It aims to make managing your cloud easier, in its many use cases such as Cheap web hosting, Cloud VPN, Data streaming, Game development, Linux hosting, Image hosting, etc. [7](https://www.digitalocean.com/solutions/use-cases)
 
-To use Arch Linux with digitalocean, obtain (or create) a Arch Linux image that is compatible with digitalocean, because digitalocean does not provide any Arch images by default. This image in techinical terms is called a disk image. They are compressed copy of data from a strorage device.~[8](https://www.merriam-webster.com/dictionary/diskimage)~ DigitalOcean supports images in compressed format such as `.img`, `.qcow2`, or `.vmdk`.
+To use Arch Linux with digitalocean, obtain (or create) a Arch Linux image that is compatible with digitalocean, because digitalocean does not provide any Arch images by default. This image in techinical terms is called a disk image. They are compressed copy of data from a strorage device. [8](https://www.merriam-webster.com/dictionary/diskimage)  DigitalOcean supports images in compressed format such as `.img`, `.qcow2`, or `.vmdk`.
 
-> For this assignment i have used the custom image told to be used in the week 1 class.~[9](https://gitlab.archlinux.org/archlinux/arch-boxes/-/package_files/7529/download)~
+> For this assignment i have used the custom image told to be used in the week 1 class. [9](https://gitlab.archlinux.org/archlinux/arch-boxes/-/package_files/7529/download)
 
 ### Custom image on DigitalOcean
 
@@ -105,7 +105,7 @@ To use Arch Linux with digitalocean, obtain (or create) a Arch Linux image that 
    1. Click the drop-down *Manage*, in the left sidebar.
    2. Click *Backups & Snapshots*, under the drop-down menu.
    3. Click *Custom Images* section.
-   >![Reaching custom image upload](/attachments/image1.2.png) ~[10](https://cloud.digitalocean.com/images/snapshots/custom_images)~
+   >![Reaching custom image upload](/attachments/image1.2.png)  [10](https://cloud.digitalocean.com/images/snapshots/custom_images)
 
 3. Upload Your Image:
    1. Click *Upload Image* and choose the image you had prepared in step 1.
@@ -114,7 +114,7 @@ To use Arch Linux with digitalocean, obtain (or create) a Arch Linux image that 
    4. Select the *San Francisco* datacenter 3 as your region.
    5. Type some *Tags* and *Notes* for your image.
    6. Click *Upload Image* to confirm the image upload on digitalocean.
-   >![Upload image panel](/attachments/image1.3.png) ~[10](https://cloud.digitalocean.com/images/snapshots/custom_images)~
+   >![Upload image panel](/attachments/image1.3.png)  [10](https://cloud.digitalocean.com/images/snapshots/custom_images)
 
 4. DigitalOcean will take a few moments to process the image, and once completed it will be listed in the *Custom Images* section.
 
@@ -163,7 +163,7 @@ Creating a droplet is a job of few clicks or one line (doctl) away. The steps ar
 > ![Droplet creation step 1-5](/attachments/image1.5.1.png)
 > ![Droplet creation step 6](/attachments/image1.5.1.png)
 > ![Droplet creation step 7-10](/attachments/image1.5.1.png)
-> ~[11](https://cloud.digitalocean.com/droplets/new)~
+> [11](https://cloud.digitalocean.com/droplets/new)
 >
 > *Note* that there were a few other options to select while creating the droplet as well. They are all need based choices, and are not necessary. If you want to apply them, feel free to do so.
 
@@ -182,7 +182,7 @@ After the successful creation of the droplet, it will appear under your *Resourc
 
 ## Cloud-init
 
-Cloud-init is a utility that allows us to set-up some intial configurations for our machines to run automatically during system boot. It is a revolutionary creation as it has greaty decreased the burden while configuring a host name, installing packages on an instance, running scripts, suppressing default virtual machine (VM) behavior, etc. ~[12](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_cloud-init_for_rhel_9/introduction-to-cloud-init_cloud-content#introduction-to-cloud-init_cloud-content)~
+Cloud-init is a utility that allows us to set-up some intial configurations for our machines to run automatically during system boot. It is a revolutionary creation as it has greaty decreased the burden while configuring a host name, installing packages on an instance, running scripts, suppressing default virtual machine (VM) behavior, etc.  [12](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_cloud-init_for_rhel_9/introduction-to-cloud-init_cloud-content#introduction-to-cloud-init_cloud-content)
 
 Most cloud services support cloud-init, with it coming pre-setup on many Linux flavors. These configurations are also not limited, as most roviders allow for multiple ways of configuring files.
 
@@ -221,7 +221,7 @@ The [Cloud file](/cloud-config.yml) I used for the assignment is this.
 4. Type your script in the *Enter user data here...* text box.
 5. Do steps 9 and 10 from *DigitalOcean droplets < Creating a droplet < Droplets on web console*.
 
-> ![Script adding on web browser](/attachments/image1.6.png) ~[11](https://cloud.digitalocean.com/droplets/new)~
+> ![Script adding on web browser](/attachments/image1.6.png)  [11](https://cloud.digitalocean.com/droplets/new)
 
 This droplet created will be under your *Resources* section of the project you saved in. Upon running the droplet for the first time, the script will automatically run, initializing your droplet.
 
@@ -264,7 +264,7 @@ First copy the contents of the public SSH key to use while connecting the key to
 6. Select the newly created key.
 7. Continue with the rest of the steps for the creation of a droplet.
 
-> ![Add a new key panel](/attachments/image1.8.png) ~[11](https://cloud.digitalocean.com/droplets/new)~
+> ![Add a new key panel](/attachments/image1.8.png)  [11](https://cloud.digitalocean.com/droplets/new)
 
 Successful droplet creation indicates that the SSH key was correct.
 
