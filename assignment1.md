@@ -47,6 +47,7 @@ The command would successfully create a key pair in your .ssh file. The private 
 ## `doctl` on Linux
 
 > *Note* this step can only be done on the Arch image since it is meant for linux. (why not for windows? My assignment didn't ask me to :])
+
 `doctl` is the command line interface of DigitalOcean. It allows the user to directly use DigitalOcean from the terminal.
 
 ### Installing `doctl`
@@ -136,6 +137,8 @@ Your digitalocean will reflect this image in a short while, indicating the tasks
 
 #### Droplets on `doctl`
 
+`doctl compute droplet create <name> --size <x-xvcpu-xgb-xxgb-xxxx> --image <xxx> --region <xxxx> --ssh-keys <xxx> --tag-name <xxx>`
+
 ---
 
 ## Cloud-init
@@ -146,6 +149,8 @@ Your digitalocean will reflect this image in a short while, indicating the tasks
 
 #### Using `doctl`
 
+`doctl compute droplet create <name> --size <x-xvcpu-xgb-xxgb-xxxx> --image <xxx> --region <xxxx> --ssh-keys <xxx> --tag-name <xxx> --user-data-flie <file-path>`
+
 ---
 
 ## Connecting SSH keys
@@ -155,6 +160,9 @@ Your digitalocean will reflect this image in a short while, indicating the tasks
 #### On web console
 
 #### On `doctl`
+
+`doctl compute ssh-key import <key-name> --public-key-file ~/.ssh/<name>.pub doctl`
+`compute ssh-key list`
 
 ---
 
