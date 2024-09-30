@@ -1,6 +1,6 @@
 # This my assignment 1
 
-All levels (1-3) are done with refernces provided at the bottom.
+All levels (1-3) are done with refernces provided at the bottom and in-text.
 
 ## Question
 
@@ -15,12 +15,12 @@ All levels (1-3) are done with refernces provided at the bottom.
 
 ## SSH key
 
-SSH stands for Secure Shell. It is a protocol used to send commands to a computer over an unsecured network in a secure manner. The connection works in a client-server model. The method of securing the connection is done through the method of cryptography. It is a 2 step process:
+SSH stands for Secure Shell. It is a protocol used to send commands to a computer over an unsecured network in a secure manner. The connection works in a client-server model. The method of securing the connection is done through the method of cryptography.~[1](https://www.cloudflare.com/learning/access-management/what-is-ssh/)~ It is a 2 step process:
 
 1. Authentication: Verify the identity of the SSH server.
 2. Encryption: A strong symetric encryption algorithm is used, which is transferred over the network using the standard hash algorithms.
 
-When we make a SSH key, we are in reality making a pair of keys. They are the public and private SSH keys. They serve a simple purpose of authenticating the client. The cryptographic pair of keys are created on the client's device, and once created, the public key is shared with the server. Now the keys will act as passwords, so when the client wants to log in, the server will compare the public key to the private key on the client's end. If they match, the connection will be established.
+When we make a SSH key, we are in reality making a pair of keys. They are the public and private SSH keys. They serve a simple purpose of authenticating the client. The cryptographic pair of keys are created on the client's device, and once created, the public key is shared with the server. Now the keys will act as passwords, so when the client wants to log in, the server will compare the public key to the private key on the client's end. If they match, the connection will be established.~[2](https://www.ssh.com/academy/ssh/protocol)~
 
 **What's the benifit?** The SSH protocol is an extremely useful tool, as it allows the client (user i.e., you) to access a server remotly. All you need to do is configure an SSH to your server, and you can now work from anywhere (as long as the server is running). *How do you make one?* Following are the steps to creating a SSH key on windows, macOS, and linux.
 
@@ -48,11 +48,11 @@ The command would successfully create a key pair in your .ssh file. The private 
 
 > *Note* this step can only be done on the Arch image since it is meant for linux. (why not for windows? My assignment didn't ask me to :])
 
-`doctl` is the command line interface of DigitalOcean. It allows the user to directly use DigitalOcean from the terminal.
+`doctl` is the command line interface of DigitalOcean. It allows the user to directly use DigitalOcean from the terminal.~[3](https://docs.digitalocean.com/reference/doctl/)~
 
 ### Installing `doctl`
 
-The following steps prepare the Linux system and downloads the CLI.
+The following steps prepare the Linux system and downloads the CLI.~[4](https://docs.digitalocean.com/reference/doctl/how-to/install/)~
 
 1. `sudo pacman -Syu`: This will update the system.
 2. `sudo pacman -S doctl`: This will install doctl.
@@ -61,7 +61,7 @@ The following steps prepare the Linux system and downloads the CLI.
 
 ### Configuring `doct`
 
-After installing `doctl`, you have to connect it to your digitalocean account to begin working. The configuration steps are as follows:
+After installing `doctl`, you have to connect it to your digitalocean account to begin working. The configuration steps are as follows:~[4](https://docs.digitalocean.com/reference/doctl/how-to/install/)~
 
 1. Create a digitalocean API token. These tokens work as a simple authentication key to connect your account to `doctl`.
    1. Go to the [Applications & API page](https://cloud.digitalocean.com/account/api/tokens).
@@ -87,13 +87,13 @@ With this you will be able to use your digitalocean account straight from the te
 
 ## Add a Custom Arch Linux Image to DigitalOcean
 
-Linux has many flavors (or dirtos or distributions), and Arch Linux is a popular one. It is a lightweight and flexible flavor meant to "Keep it Simple".
+Linux has many flavors (or dirtos or distributions), and Arch Linux is a popular one. It is a lightweight and flexible flavor meant to "Keep it Simple".~[5](https://archlinux.org/)~
 
-DigitalOcean is a cloud service provider. It aims to make managing your cloud easier, in its many use cases such as Cheap web hosting, Cloud VPN, Data streaming, Game development, Linux hosting, Image hosting, etc.
+DigitalOcean is a cloud service provider. It aims to make managing your cloud easier, in its many use cases such as Cheap web hosting, Cloud VPN, Data streaming, Game development, Linux hosting, Image hosting, etc.~[6](https://www.digitalocean.com/solutions/use-cases)~
 
-To use Arch Linux with digitalocean, obtain (or create) a Arch Linux image that is compatible with digitalocean, because digitalocean does not provide any Arch images by default. This image in techinical terms is called a disk image. They are compressed copy of data from a strorage device. DigitalOcean supports images in compressed format such as `.img`, `.qcow2`, or `.vmdk`.
+To use Arch Linux with digitalocean, obtain (or create) a Arch Linux image that is compatible with digitalocean, because digitalocean does not provide any Arch images by default. This image in techinical terms is called a disk image. They are compressed copy of data from a strorage device.~[7](https://www.merriam-webster.com/dictionary/diskimage)~ DigitalOcean supports images in compressed format such as `.img`, `.qcow2`, or `.vmdk`.
 
-> For this assignment i have used the custom image told to be used in the week 1 class. I used this [one](https://gitlab.archlinux.org/archlinux/arch-boxes/-/package_files/7529/download).
+> For this assignment i have used the custom image told to be used in the week 1 class.~[8](https://gitlab.archlinux.org/archlinux/arch-boxes/-/package_files/7529/download)~
 
 ### Custom image on DigitalOcean
 
@@ -170,12 +170,12 @@ Your digitalocean will reflect this image in a short while, indicating the tasks
 
 ## References
 
-[SSH defination](https://www.ssh.com/academy/ssh/protocol)
-[SSH usage](https://www.cloudflare.com/learning/access-management/what-is-ssh/)
+[SSH defination](https://www.cloudflare.com/learning/access-management/what-is-ssh/)
+[SSH description](https://www.ssh.com/academy/ssh/protocol)
+[What is doctl](https://docs.digitalocean.com/reference/doctl/)
+[How to install and configure doctl](https://docs.digitalocean.com/reference/doctl/how-to/install/)
 [What is Arch](https://archlinux.org/)
 [Use of DigitalOcean](https://www.digitalocean.com/solutions/use-cases)
-[What is doctl](https://docs.digitalocean.com/reference/doctl/)
-[Custom image location](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages/1545)
-[How to install and configure doctl](https://docs.digitalocean.com/reference/doctl/how-to/install/)
 [What is a disk image](https://www.merriam-webster.com/dictionary/diskimage)
+[Custom image](https://gitlab.archlinux.org/archlinux/arch-boxes/-/package_files/7529/download)
 [Commands for doctl](https://docs.digitalocean.com/reference/doctl/reference/)
