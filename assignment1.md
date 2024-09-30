@@ -1,4 +1,4 @@
-# This my assignment 1
+# This is my assignment 1
 
 All levels (1-3) are done with refernces provided at the bottom and in-text.
 
@@ -71,7 +71,7 @@ After installing `doctl`, you have to connect it to your digitalocean account to
    5. Choose the *Scopes* you want the token owner to have.
    6. Click *Generate Token* to obtain it.
    > **Caution** After the token is generated, the token will be shown. This will only be shown the first time, so copy it somewhere safe.
-   > ![Generating token panel](/attachments/image1.png)
+   > ![Generating token panel](/attachments/image1.1.png) ~[5](https://cloud.digitalocean.com/account/api/tokens/new)~
 
    Now use the token in `doctl` to gain access to your account through the terminal. This will be done as follows:
 
@@ -87,13 +87,13 @@ With this you will be able to use your digitalocean account straight from the te
 
 ## Add a Custom Arch Linux Image to DigitalOcean
 
-Linux has many flavors (or dirtos or distributions), and Arch Linux is a popular one. It is a lightweight and flexible flavor meant to "Keep it Simple".~[5](https://archlinux.org/)~
+Linux has many flavors (or dirtos or distributions), and Arch Linux is a popular one. It is a lightweight and flexible flavor meant to "Keep it Simple".~[6](https://archlinux.org/)~
 
-DigitalOcean is a cloud service provider. It aims to make managing your cloud easier, in its many use cases such as Cheap web hosting, Cloud VPN, Data streaming, Game development, Linux hosting, Image hosting, etc.~[6](https://www.digitalocean.com/solutions/use-cases)~
+DigitalOcean is a cloud service provider. It aims to make managing your cloud easier, in its many use cases such as Cheap web hosting, Cloud VPN, Data streaming, Game development, Linux hosting, Image hosting, etc.~[7](https://www.digitalocean.com/solutions/use-cases)~
 
-To use Arch Linux with digitalocean, obtain (or create) a Arch Linux image that is compatible with digitalocean, because digitalocean does not provide any Arch images by default. This image in techinical terms is called a disk image. They are compressed copy of data from a strorage device.~[7](https://www.merriam-webster.com/dictionary/diskimage)~ DigitalOcean supports images in compressed format such as `.img`, `.qcow2`, or `.vmdk`.
+To use Arch Linux with digitalocean, obtain (or create) a Arch Linux image that is compatible with digitalocean, because digitalocean does not provide any Arch images by default. This image in techinical terms is called a disk image. They are compressed copy of data from a strorage device.~[8](https://www.merriam-webster.com/dictionary/diskimage)~ DigitalOcean supports images in compressed format such as `.img`, `.qcow2`, or `.vmdk`.
 
-> For this assignment i have used the custom image told to be used in the week 1 class.~[8](https://gitlab.archlinux.org/archlinux/arch-boxes/-/package_files/7529/download)~
+> For this assignment i have used the custom image told to be used in the week 1 class.~[9](https://gitlab.archlinux.org/archlinux/arch-boxes/-/package_files/7529/download)~
 
 ### Custom image on DigitalOcean
 
@@ -105,7 +105,7 @@ To use Arch Linux with digitalocean, obtain (or create) a Arch Linux image that 
    1. Click the drop-down *Manage*, in the left sidebar.
    2. Click *Backups & Snapshots*, under the drop-down menu.
    3. Click *Custom Images* section.
-   >![Reaching custom image upload](/attachments/image2.png)
+   >![Reaching custom image upload](/attachments/image1.2.png) ~[10](https://cloud.digitalocean.com/images/snapshots/custom_images)~
 
 3. Upload Your Image:
    1. Click *Upload Image* and choose the image you had prepared in step 1.
@@ -114,16 +114,18 @@ To use Arch Linux with digitalocean, obtain (or create) a Arch Linux image that 
    4. Select the *San Francisco* datacenter 3 as your region.
    5. Type some *Tags* and *Notes* for your image.
    6. Click *Upload Image* to confirm the image upload on digitalocean.
-   >![Upload image panel](/attachments/image3.png)
+   >![Upload image panel](/attachments/image1.3.png) ~[10](https://cloud.digitalocean.com/images/snapshots/custom_images)~
 
 4. DigitalOcean will take a few moments to process the image, and once completed it will be listed in the *Custom Images* section.
 
 #### image upload using `doctl`
 
+[Commands from here.](https://docs.digitalocean.com/reference/doctl/reference/compute/image/)
+
 1. `doctl compute image create <name> --image-url <image-location> --region <name> --image-distribution Arch`: This creates a custom image in digitalocean.
 2. `doctl compute image list`: This will show you the list of images you have. You can retrive your image ID from here, whenever you want.
 
-> ![image creation in Linux](/attachments/image4.png)
+> ![image creation in Linux](/attachments/image1.4.png)
 
 Your digitalocean will reflect this image in a short while, indicating the tasks completion.
 
@@ -131,51 +133,178 @@ Your digitalocean will reflect this image in a short while, indicating the tasks
 
 ## DigitalOcean droplets
 
+DigitalOcean allows for easy creation of cloud based virtual machines, which are called droplets. Droplets are meant to be an easy to set up virtual machine on the cloud at an affordable price. Droplets also boost high and reliable scalability and secure connections. It allows for the creation of a wide variety of machines based on your needs.
+
 ### Creating a droplet
+
+Creating a droplet is a job of few clicks or one line (doctl) away. The steps are provided below.
 
 #### Droplets on web console
 
+1. From your [projects page](https://cloud.digitalocean.com/projects) follow the following steps:
+   1. Click the drop-down *Create* from the topbar in the green color.
+   2. Choose *Droplets* to begin creating a cloud server.
+2. Choose an appropriate *Region* for your area.
+3. Choose a *Datacenter* from the drop-down. Select the one that is closest to you geographically to avoid latency.
+4. Choose *Custom images* under the *Choose an image* section.
+5. Choose the custom image you previously added to digitalocean.
+6. Select an appropriate size for your virtual machine based on your needs:
+   1. Choose a *Droplet Type*.
+   2. Choose the *CPU options* based on your droplet type and needs.
+7. Click *SSH Key* under Choose Authentication Method.
+8. Choose at least one of the added SSH keys or create a new key.
+9. Scroll down to *Finalize Details* to finish up the proccess:
+   1. Choose the number of droplets you want to create.
+   2. Type a name for the droplet.
+   3. Give it any tags for better organization of droplets.
+   4. Select in which project the droplets sshould be saved in.
+10. Click *Create Droplet* to finish creating a working VM.
+
+> ![Droplet creation step 1-5](/attachments/image1.5.1.png)
+> ![Droplet creation step 6](/attachments/image1.5.1.png)
+> ![Droplet creation step 7-10](/attachments/image1.5.1.png)
+> ~[11](https://cloud.digitalocean.com/droplets/new)~
+>
+> *Note* that there were a few other options to select while creating the droplet as well. They are all need based choices, and are not necessary. If you want to apply them, feel free to do so.
+
+After the successful creation of the droplet, it will appear under your *Resources* section of the project you selected it to be saved in.
+
 #### Droplets on `doctl`
 
-`doctl compute droplet create <name> --size <x-xvcpu-xgb-xxgb-xxxx> --image <xxx> --region <xxxx> --ssh-keys <xxx> --tag-name <xxx>`
+[Commands from here.](https://docs.digitalocean.com/reference/doctl/reference/compute/droplet/)
+
+1. `doctl compute droplet create <name> --size <x-xvcpu-xgb-xxgb-xxxx> --image <ID> --region <xxxx> --ssh-keys <ID> --tag-name <xxx>`: This is the syntax of the command to create a droplet. The <> and "x" need to be replaced with the appropriate values.
+2. `doctl compute droplet list`: This can be used to confirm if the droplet was successfully created.
+
+> *Note* that at the moment `doctl` is only capable of creating one droplet at a time.
 
 ---
 
 ## Cloud-init
 
+Cloud-init is a utility that allows us to set-up some intial configurations for our machines to run automatically during system boot. It is a revolutionary creation as it has greaty decreased the burden while configuring a host name, installing packages on an instance, running scripts, suppressing default virtual machine (VM) behavior, etc. ~[12](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_cloud-init_for_rhel_9/introduction-to-cloud-init_cloud-content#introduction-to-cloud-init_cloud-content)~
+
+Most cloud services support cloud-init, with it coming pre-setup on many Linux flavors. These configurations are also not limited, as most roviders allow for multiple ways of configuring files.
+
 ### Cloud-init configuration file
 
-[Cloud file used](/cloud-config.yml)
+Cloud-init uses yml/yaml file formatting types to run. The cloud config file i.e., the yaml follows a format similar to this:
 
-#### Using web console
+    users: # creates a user
+    name: <name>
+    primary_group: <name>
+    groups: wheel
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys: # adds the SSH key
+        <public-SSH-key>
+    
+    packages: # installs metioned packages
+        ripgrep
+        rsync
+        neovim
+        fd
+        less
+        man-db
+        bash-completion
+        tmux
+    
+    disable_root: true
 
-#### Using `doctl`
+The [Cloud file](/cloud-config.yml) I used for the assignment is this.
 
-`doctl compute droplet create <name> --size <x-xvcpu-xgb-xxgb-xxxx> --image <xxx> --region <xxxx> --ssh-keys <xxx> --tag-name <xxx> --user-data-flie <file-path>`
+#### Adding with web console
+
+1. Do steps 1-8 from *DigitalOcean droplets < Creating a droplet < Droplets on web console*.
+2. Click *Advanced Options* under Choose Authentication Method.
+3. Click *Add Initialization scripts (free)* check box to add a cloudscript to run at initialization.
+4. Type your script in the *Enter user data here...* text box.
+5. Do steps 9 and 10 from *DigitalOcean droplets < Creating a droplet < Droplets on web console*.
+
+> ![Script adding on web browser](/attachments/image1.6.png) ~[11](https://cloud.digitalocean.com/droplets/new)~
+
+This droplet created will be under your *Resources* section of the project you saved in. Upon running the droplet for the first time, the script will automatically run, initializing your droplet.
+
+#### Adding with `doctl`
+
+[Commands from here.](https://docs.digitalocean.com/reference/doctl/reference/compute/droplet/create/)
+
+1. `cd ~`: Go to your home directory.
+2. `mkdir config`: Creates a directory named config.
+3. `cd config`: Move to the newly created config directory.
+4. `nvim <file-name>.yml`: Creates a yml file, add enter text editor.
+5. Press "**i**" to enter insert mode to edit file.
+6. Add your yml file content.
+7. Press "**ESC**" to exit insert mode.
+8. `:wq`: Type it to save and quit the yml file.
+9. `doctl compute droplet create <name> --size <x-xvcpu-xgb-xxgb-xxxx> --image <xxx> --region <xxxx> --ssh-keys <xxx> --tag-name <xxx> --user-data-file <~/config/file-name.yml>`: This will create a droplet with the yml configurations you input.
+10. `doctl compute droplet list`: This can be used to confirm if the droplet was successfully created.
+
+![Droplet creation in linux with cloud-init](/attachments/image1.7.png)
 
 ---
 
-## Connecting SSH keys
+## Connecting SSH keys to server
 
-### SSH to server
+To use SSH keys in digitalocean, we must first connect the key to the cloud service provider.
+
+### SHH key connecting
+
+First copy the contents of the public SSH key to use while connecting the key to the server.
+
+**Windows:** `Get-Content C:\Users\<your-user-name>\.ssh\<key-name>.pub | Set-Clipboard`: This copies the key onto your clipboard for later use.
 
 #### On web console
 
+1. Do steps 1-6 from *DigitalOcean droplets < Creating a droplet < Droplets on web console*.
+2. Click *New SSH Key* to open the panel for creating adding a key.
+3. Paste the earlier copied public key in *SSH key content*.
+4. Type a name for the key.
+5. Click *Add SSH Key*.
+6. Select the newly created key.
+7. Continue with the rest of the steps for the creation of a droplet.
+
+> ![Add a new key panel](/attachments/image1.8.png) ~[11](https://cloud.digitalocean.com/droplets/new)~
+
+Successful droplet creation indicates that the SSH key was correct.
+
 #### On `doctl`
 
-`doctl compute ssh-key import <key-name> --public-key-file ~/.ssh/<name>.pub doctl`
-`compute ssh-key list`
+[Commands from here.](https://docs.digitalocean.com/reference/doctl/reference/compute/ssh-key/)
+
+1. `doctl compute ssh-key import <key-name> --public-key-file ~/.ssh/<name>.pub`: This copies the public key from the file and imports it to digitalocean.
+2. `doctl compute ssh-key list`: Confirm key creation and ID from here.
 
 ---
 
 ## References
 
 [SSH defination](https://www.cloudflare.com/learning/access-management/what-is-ssh/)
+
 [SSH description](https://www.ssh.com/academy/ssh/protocol)
+
 [What is doctl](https://docs.digitalocean.com/reference/doctl/)
+
 [How to install and configure doctl](https://docs.digitalocean.com/reference/doctl/how-to/install/)
+
+[Token generation](https://cloud.digitalocean.com/account/api/tokens)
+
 [What is Arch](https://archlinux.org/)
+
 [Use of DigitalOcean](https://www.digitalocean.com/solutions/use-cases)
+
 [What is a disk image](https://www.merriam-webster.com/dictionary/diskimage)
+
 [Custom image](https://gitlab.archlinux.org/archlinux/arch-boxes/-/package_files/7529/download)
+
+[DigitalOcean projects](https://cloud.digitalocean.com/projects)
+
+[Custom image upload](https://cloud.digitalocean.com/images/snapshots/custom_images)
+
+[Droplets](https://www.digitalocean.com/products/droplets)
+
+[Creating droplets](https://cloud.digitalocean.com/droplets/new)
+
+[What is cloud-init](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_cloud-init_for_rhel_9/introduction-to-cloud-init_cloud-content#introduction-to-cloud-init_cloud-content)
+
 [Commands for doctl](https://docs.digitalocean.com/reference/doctl/reference/)

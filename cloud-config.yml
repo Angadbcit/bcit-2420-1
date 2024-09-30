@@ -6,7 +6,7 @@ users:
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh-authorized-keys:
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDG1fLJ/LikdBBcMFJlJbb3FH+yXJORx72GCl3bXTUYN ang # change with your yml/yaml file
+      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDG1fLJ/LikdBBcMFJlJbb3FH+yXJORx72GCl3bXTUYN ang # change with your yml/yaml file
 
 packages:
   - ripgrep
@@ -17,5 +17,6 @@ packages:
   - man-db
   - bash-completion
   - tmux
+  - tree
 
 disable_root: true
