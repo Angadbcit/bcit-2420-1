@@ -145,6 +145,8 @@ Your digitalocean will reflect this image in a short while, indicating the tasks
 
 ### Cloud-init configuration file
 
+[Cloud file used](/cloud-config.yml)
+
 #### Using web console
 
 #### Using `doctl`
