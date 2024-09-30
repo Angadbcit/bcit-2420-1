@@ -1,0 +1,21 @@
+#cloud-config
+users:
+  - name: ang #change me
+    primary_group: ang # change me
+    groups: wheel
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBu96npnGccQSkobI2OG2zo2LELxtLeSuxhu1ua9xiKy angadbains2 # change this
+
+packages:
+  - ripgrep
+  - rsync
+  - neovim
+  - fd
+  - less
+  - man-db
+  - bash-completion
+  - tmux
+
+disable_root: true
